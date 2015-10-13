@@ -31,8 +31,10 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 
             // My bundles
+            new CoreBundle\CoreBundle(),
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
+            new CmsBundle\CmsBundle(),
         ];
 
         // Some bundles are only used while developing the application or during

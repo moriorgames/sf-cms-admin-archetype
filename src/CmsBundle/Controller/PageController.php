@@ -2,18 +2,27 @@
 
 namespace CmsBundle\Controller;
 
+use CmsBundle\Entity\Page;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+// Annotations
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DefaultController extends Controller
+/**
+ * Map controller.
+ *
+ * @Route("/")
+ */
+class PageController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
+     * @Route()
      * @Template()
      */
-    public function indexAction($name)
+    public function indexAction($slug)
     {
-        return array('name' => $name);
+
+
+        return ['name' => $slug];
     }
 }
