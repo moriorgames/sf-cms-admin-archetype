@@ -1,0 +1,15 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block list %}
+    <ul class="nav navbar-nav navbar-right">
+        {{ block('children') }}
+    </ul>
+{% endblock %}
+
+{% block label %}
+    {% if options.allow_safe_labels and item.getExtra('safe_label', false) %}
+        {{ item.label|raw|trans }}
+    {% else %}
+        {{ item.label|trans }}
+    {% endif %}
+{% endblock %}

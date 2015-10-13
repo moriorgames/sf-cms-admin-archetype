@@ -1,0 +1,10 @@
+services:
+
+    user.login_success_handler:
+        class: MoriorGames\UserBundle\Handler\LoginSuccessHandler
+        arguments:
+            - @router
+            - @security.token_storage
+            - @session
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }

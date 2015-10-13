@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>{{ 'map.title_edit'|trans|raw }}</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 tools">
+            {% for tool in tiles %}
+                <a href="#"
+                   id="tool_{{ tool.id }}"
+                   data-id="{{ tool.id }}"
+                   class="tile {{ tool.class }}"
+                   title="{{ tool.name }}">&nbsp;</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div id="map_container" class="tile-by-tile">
+
+                <form action="{{ path('map_tile_by_tile') }}" method="POST">
+                    <input type="hidden" id="_map_id" value="{{ map.id }}"/>
+                    {% for tile in mapTiles %}
+                        <a href="#"
+                           id="{{ tile.id }}"
+                           class="tile {{ tile.class }}"
+                           style="top:{{ tile.top }}px;left:{{ tile.left }}px"
+                           data-x="{{ tile.x }}" data-y="{{ tile.y }}"
+                           title="{{ tile.x ~ '/' ~ tile.y }}">&nbsp;</a>
+                    {% endfor %}
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

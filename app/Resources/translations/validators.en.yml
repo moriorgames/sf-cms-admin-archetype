@@ -1,0 +1,10 @@
+
+post:
+  blank_summary: Give your post a summary!
+  blank_content: Your post should have some content!
+  too_short_content: Post content is too short ({{ limit }} characters minimum)
+comment:
+  blank: Please don't leave your comment blank!
+  too_short: Comment is too short ({{ limit }} characters minimum)
+  too_long: Comment is too long ({{ limit }} characters maximum)
+  is_spam: The content of this comment is considered spam.

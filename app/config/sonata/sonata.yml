@@ -1,0 +1,67 @@
+
+sonata_admin:
+    security:
+        handler:              sonata.admin.security.handler.noop
+        information:
+            id:                   []
+        admin_permissions:
+
+            # Defaults:
+            - CREATE
+            - LIST
+            - DELETE
+            - UNDELETE
+            - EXPORT
+            - OPERATOR
+            - MASTER
+        object_permissions:
+            - VIEW
+            - EDIT
+            - DELETE
+            - UNDELETE
+            - OPERATOR
+            - MASTER
+            - OWNER
+        acl_user_manager:     ~
+    title:                Admin Panel
+    title_logo:           images/logo.png
+    options:
+        html5_validate:                         true
+        confirm_exit:                           true
+        use_select2:                            true
+        use_icheck:                             true
+        dropdown_number_groups_per_colums:      2
+        title_mode:           'single_text'  # 'both', 'single_text' or 'single_image'
+
+    persist_filters:      false     # set to true to persist filter settings per admin module in the user's session
+
+    dashboard:
+        groups:
+#            Users:
+#                label: Usuarios
+#                items:
+#                    - cms_user.admin.user
+#                roles: [ ROLE_ADMIN ]
+
+            Content:
+                label: Content
+                items:
+                    - app.archetype.admin
+                    - app.image.admin
+
+#            Classification:
+#                label: Clasificación
+#                items:
+#                    - cms_classification.admin.category
+#                roles: [ ROLE_ADMIN ]
+
+    templates:
+        layout: :Admin:standard_layout.html.twig
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]

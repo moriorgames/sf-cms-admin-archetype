@@ -1,0 +1,10 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{# Override some blocks of sonata admin template #}
+
+{% block side_bar_nav %}
+    {{ knp_menu_render('sonata_admin_sidebar', {template: admin_pool.getTemplate('knp_menu_template')}) }}
+{% endblock side_bar_nav %}
+
+{# I want to remove this blog from Sonata admin so leave it empty #}
+{% block side_bar_after_nav %}{% endblock %}

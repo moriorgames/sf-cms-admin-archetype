@@ -1,0 +1,41 @@
+# Symfony project .gitignore file with the recomendation github
+# https://github.com/github/gitignore/blob/master/Symfony.gitignore
+
+# System files
+.DS_Store
+.classpath
+.project
+.settings
+.idea/
+
+# Cache and logs (Symfony2)
+app/check.php
+app/cache/*
+app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+
+# Parameters
+app/config/parameters.yml
+app/config/parameters.ini
+
+# Managed by Composer
+app/bootstrap.php.cache
+app/SymfonyRequirements.php
+bin/*
+!bin/console
+!bin/symfony_requirements
+vendor/
+
+# Assets and user uploads
+web/bundles/
+web/uploads/
+web/.htaccess
+web/app_dev.php
+
+# PHPUnit and some xml files
+phpunit.xml
+phpdox.html
+
+# Build data
+build/

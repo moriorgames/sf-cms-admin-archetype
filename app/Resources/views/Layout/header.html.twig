@@ -1,0 +1,29 @@
+<header>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ path('homepage') }}">
+                    {{ 'project_name'|trans }}
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+
+                {{ knp_menu_render('AppBundle:Builder:mainMenu',{
+                    'template': 'Layout/Menu/mainMenu.html.twig'
+                }
+                ) }}
+
+                {#<ul class="nav navbar-nav navbar-right">#}
+
+                {#<li>#}
+                {#<a href="{{ path('homepage') }}">#}
+                {#<i class="fa fa-home"></i> {{ 'menu.homepage'|trans }}#}
+                {#</a>#}
+                {#</li>#}
+
+                {#</ul>#}
+
+            </div>
+        </div>
+    </div>
+</header>

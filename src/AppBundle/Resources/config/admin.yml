@@ -1,0 +1,18 @@
+# Admin Panel services declaration
+services:
+
+    app.archetype.admin:
+        class: AppBundle\Admin\Archetype
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: form.label_content, label: Archetype }
+        arguments: [null, AppBundle\Entity\Archetype, SonataAdminBundle:CRUD]
+        calls:
+            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
+
+    app.image.admin:
+        class: AppBundle\Admin\Image
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: form.label_content, label: Image }
+        arguments: [null, AppBundle\Entity\Image, SonataAdminBundle:CRUD]
+        calls:
+            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]

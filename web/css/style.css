@@ -1,0 +1,72 @@
+
+/* ==================== */
+/*         MENU         */
+/* ==================== */
+.navbar-default .navbar-nav > .current > a,
+.navbar-default .navbar-nav > .current > a:hover,
+.navbar-default .navbar-nav > .current > a:focus {
+    color: #fff;
+    background-color: #1a252f;
+}
+
+/* ==================== */
+/*       GENERAL        */
+/* ==================== */
+a, a:hover, a:visited, a:active {text-decoration: none}
+.container.body-container{
+    width: 1000px;
+}
+header {
+    margin-bottom: 0;
+}
+.page-header {
+    padding-bottom: 0;
+    margin: 0 0 5px 0;
+    border-bottom: 1px solid gray;
+}
+h1 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+/* ==================== */
+/*         MAP          */
+/* ==================== */
+#map_container {
+    background: #071c3d;
+    padding: 5px;
+    position: relative;
+    height: 630px;
+    width: 990px;
+}
+
+.tools .tile.active {
+    border: 2px solid red;
+    width: 112px;
+}
+.tools .tile {
+    border: 2px solid black;
+    display: block;
+    position: relative;
+    float: left;
+    margin: 2px 1px;
+    height: 90px;
+    width: 105px;
+}
+
+.tile {
+    display: block;
+    position: absolute;
+    height: 112px;
+    width: 112px;
+}
+
+.tile.blue_home {background-image: url('../images/map/blue_home.png')}
+.tile.blue_castle {background-image: url('../images/map/blue_castle.png')}
+.tile.blue_tower {background-image: url('../images/map/blue_tower.png')}
+.tile.red_home {background-image: url('../images/map/red_home.png')}
+.tile.red_castle {background-image: url('../images/map/red_castle.png')}
+.tile.red_tower {background-image: url('../images/map/red_tower.png')}
+.tile.npc {background-image: url('../images/map/npc.png')}
+.tile.grass {background-image: url('../images/map/grass.png')}
+.tile.woods {background-image: url('../images/map/woods.png')}
