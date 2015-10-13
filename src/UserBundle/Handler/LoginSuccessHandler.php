@@ -2,8 +2,8 @@
 
 namespace UserBundle\Handler;
 
+use UserBundle\Entity\User;
 use Symfony\Component\Routing\Router;
-use MoriorGames\UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\RedirectResponse;

@@ -1,7 +1,7 @@
 services:
 
     user.login_success_handler:
-        class: MoriorGames\UserBundle\Handler\LoginSuccessHandler
+        class: UserBundle\Handler\LoginSuccessHandler
         arguments:
             - @router
             - @security.token_storage

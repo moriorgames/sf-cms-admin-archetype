@@ -2,7 +2,7 @@
 
 namespace UserBundle\DataFixtures\ORM;
 
-use MoriorGames\UserBundle\Entity\User;
+use UserBundle\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
