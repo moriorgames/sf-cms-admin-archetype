@@ -1,1 +1,6 @@
 services:
+
+    cms.page_manager:
+        class: CmsBundle\Manager\PageManager
+        arguments:
+            - @doctrine.orm.entity_manager
