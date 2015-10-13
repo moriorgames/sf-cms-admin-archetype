@@ -37,8 +37,8 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
     {
         $user = new User();
         $user
-            ->setUsername('Morior')
-            ->setEmail('moriorgames@gmail.com')
+            ->setUsername('Jordi Lavinia')
+            ->setEmail('jordi.grados.lavinia@gmail.com')
             ->setPlainPassword('nomejodas')
             ->setRoles(['ROLE_SUPER_ADMIN'])
             ->setEnabled(true);

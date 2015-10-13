@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+// Annotations
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Controller used to manage blog contents in the public part of the site.
@@ -15,11 +17,13 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @Method("GET")
+     * @Template("default/homepage.html.twig")
      *
-     * @return Response
+     * @return array
      */
     public function indexAction()
     {
-        return $this->render('default/homepage.html.twig');
+        return [];
     }
 }
