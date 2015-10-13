@@ -2,7 +2,9 @@
 
 namespace AppBundle\Menu;
 
+use CmsBundle\Entity\Page;
 use Knp\Menu\FactoryInterface;
+use CmsBundle\Manager\PageManager;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
 /**
@@ -14,13 +16,19 @@ class Builder extends ContainerAware
     {
         $menu = $factory->createItem('root');
 
-        $menu->addChild('menu.homepage', ['route' => 'homepage']);
-        $menu->addChild('menu.map', ['route' => 'map']);
-        $menu->addChild('menu.archetype', ['route' => 'archetype']);
+        /** @var PageManager $pageManager */
+        $pageManager = $this->container->get('cms.page_manager');
+        $pages = $pageManager->getRepository()->findAll();
 
-        // Temporary
-        $menu->addChild('menu.login', ['route' => 'fos_user_security_login']);
-        $menu->addChild('admin.dashboard', ['route' => 'sonata_admin_dashboard']);
+        /** @var Page $page */
+        foreach ($pages as $page) {
+            $menu->addChild($page->getName(), [
+                'route' => 'page_show',
+                'routeParameters' => [
+                    'slug' => $page->getSlug(),
+                ],
+            ]);
+        }
 
         return $menu;
     }
