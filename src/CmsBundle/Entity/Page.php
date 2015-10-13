@@ -9,6 +9,7 @@ use CoreBundle\Entity\Traits\EnabledTrait;
 use CoreBundle\Entity\Traits\DateTimeTrait;
 use CoreBundle\Entity\Traits\NameSlugTrait;
 use CoreBundle\Entity\Traits\IdentifiableTrait;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Page.
