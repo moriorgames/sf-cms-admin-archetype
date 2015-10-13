@@ -63,3 +63,27 @@ help:
     reload_fixtures: 'If these users don''t work, reload application fixtures by running this command from the terminal:'
     add_user: 'If you want to create new users, run this other command:'
     more_information: For more information, check out the <a href="http://symfony.com/doc">Symfony doc</a>.
+
+
+
+# Sonata admin panel
+admin:
+    content:        Content
+    page:           Page
+    post:           Post
+    name:           Name
+    slug:           Slug
+    created_at:     Created At
+    updated_at:     Updated At
+    title:          Title
+    description:    Description
+    order:          Order
+    enabled:        Enabled
+
+list:
+    label_name: Name
+    label_slug: Slug
+    label_sort: Sort
+
+breadcrumb:
+    link_page_list: Page list

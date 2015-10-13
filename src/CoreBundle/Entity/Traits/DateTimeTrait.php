@@ -20,7 +20,7 @@ trait DateTimeTrait
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="updated_at",type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
 

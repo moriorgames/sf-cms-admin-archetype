@@ -37,23 +37,13 @@ sonata_admin:
 
     dashboard:
         groups:
-#            Users:
-#                label: Usuarios
-#                items:
-#                    - cms_user.admin.user
-#                roles: [ ROLE_ADMIN ]
 
             Content:
-                label: Content
+                label: admin.content
+                label_catalogue: messages
                 items:
-                    - app.archetype.admin
-                    - app.image.admin
-
-#            Classification:
-#                label: Clasificación
-#                items:
-#                    - cms_classification.admin.category
-#                roles: [ ROLE_ADMIN ]
+                    - cms.page.admin
+                    - cms.post.admin
 
     templates:
         layout: :Admin:standard_layout.html.twig
@@ -65,3 +55,9 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts:   [admin]
+
+# enable Sonata admin datepicker
+twig:
+    form:
+        resources:
+            - 'SonataCoreBundle:Form:datepicker.html.twig'

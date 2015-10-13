@@ -3,6 +3,8 @@
 namespace CmsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use CoreBundle\Entity\Traits\SeoTrait;
+use CoreBundle\Entity\Traits\SortTrait;
 use CoreBundle\Entity\Traits\EnabledTrait;
 use CoreBundle\Entity\Traits\DateTimeTrait;
 use CoreBundle\Entity\Traits\NameSlugTrait;
@@ -21,4 +23,6 @@ class Page
     use NameSlugTrait;
     use EnabledTrait;
     use DateTimeTrait;
+    use SeoTrait;
+    use SortTrait;
 }

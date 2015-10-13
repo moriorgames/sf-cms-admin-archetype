@@ -1,0 +1,24 @@
+# Admin Panel services declaration
+services:
+
+    cms.page.admin:
+        class: CmsBundle\Admin\Page
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: form.label_content, label: admin.page }
+        arguments:
+            - ~
+            - CmsBundle\Entity\Page
+            - SonataAdminBundle:CRUD
+        calls:
+            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
+
+    cms.post.admin:
+        class: CmsBundle\Admin\Post
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: form.label_content, label: admin.post }
+        arguments:
+            - ~
+            - CmsBundle\Entity\Post
+            - SonataAdminBundle:CRUD
+        calls:
+            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
