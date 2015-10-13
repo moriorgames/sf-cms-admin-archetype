@@ -44,7 +44,6 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
         $this->loadPosts($manager);
     }
 
-
 // ------------------------------ PRIVATE METHODS ------------------------------
 
 
@@ -54,9 +53,8 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
     private function loadPages(ObjectManager $manager)
     {
         for ($i = 0; $i < 4; ++$i) {
-
-            $created = new DateTime('now + ' . mt_rand(1, 50) . ' hours');
-            $updated = new DateTime('now + ' . mt_rand(100, 150) . ' hours');
+            $created = new DateTime('now + '.mt_rand(1, 50).' hours');
+            $updated = new DateTime('now + '.mt_rand(100, 150).' hours');
 
             /** @var Page $page */
             $page = new Page();
@@ -71,7 +69,6 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
                 ->setSort(mt_rand(1, 10))
                 ->setEnabled(mt_rand(0, 1));
             $manager->persist($page);
-
         }
 
         $manager->flush();
@@ -83,9 +80,8 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
     private function loadPosts(ObjectManager $manager)
     {
         for ($i = 0; $i < 9; ++$i) {
-
-            $created = new DateTime('now + ' . mt_rand(1, 50) . ' hours');
-            $updated = new DateTime('now + ' . mt_rand(100, 150) . ' hours');
+            $created = new DateTime('now + '.mt_rand(1, 50).' hours');
+            $updated = new DateTime('now + '.mt_rand(100, 150).' hours');
 
             /** @var Post $post */
             $post = new Post();
@@ -100,7 +96,6 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
                 ->setUpdatedAt($updated)
                 ->setEnabled(mt_rand(0, 1));
             $manager->persist($post);
-
         }
 
         $manager->flush();
