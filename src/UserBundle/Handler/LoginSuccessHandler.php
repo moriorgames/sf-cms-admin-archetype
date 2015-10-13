@@ -1,6 +1,6 @@
 <?php
 
-namespace MoriorGames\UserBundle\Handler;
+namespace UserBundle\Handler;
 
 use Symfony\Component\Routing\Router;
 use MoriorGames\UserBundle\Entity\User;

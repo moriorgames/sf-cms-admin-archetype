@@ -1,6 +1,6 @@
 <?php
 
-namespace MoriorGames\UserBundle;
+namespace UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

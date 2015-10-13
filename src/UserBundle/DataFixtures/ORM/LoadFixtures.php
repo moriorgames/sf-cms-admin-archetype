@@ -1,6 +1,6 @@
 <?php
 
-namespace MoriorGames\DataFixtures\ORM;
+namespace UserBundle\DataFixtures\ORM;
 
 use MoriorGames\UserBundle\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;

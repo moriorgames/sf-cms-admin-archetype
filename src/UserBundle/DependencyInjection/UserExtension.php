@@ -1,6 +1,6 @@
 <?php
 
-namespace MoriorGames\UserBundle\DependencyInjection;
+namespace UserBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader;
