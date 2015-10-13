@@ -3,7 +3,6 @@
 namespace CoreBundle\Entity\Traits;
 
 use DateTime;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class DateTimeTrait.

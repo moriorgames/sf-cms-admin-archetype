@@ -2,8 +2,6 @@
 
 namespace CoreBundle\Entity\Traits;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Class SortTrait.
  */
