@@ -4,10 +4,10 @@ tip: TIP
 not_available: Not available
 mit_license: MIT License
 
-project_name: Browser moba
+project_name: Sonata Admin cms Archetype
 
 title:
-    homepage: Welcome to the <strong>Browser moba</strong> application
+    homepage: Welcome to the <strong>Sonata Admin cms Archetype</strong>
 
 action:
     show: Show
@@ -21,6 +21,16 @@ action:
     sign_in: Sign in
     browse_app: Browse application
     browse_admin: Browse backend
+
+form:
+    name:               Name
+    slug:               Slug
+    title:              Title
+    meta_title:         Meta Title
+    description:        Description
+    meta_description:   Meta Description
+    enabled:            Is enabled
+    submit_create:      Create
 
 label:
     create_post: Create post
@@ -53,36 +63,3 @@ help:
     reload_fixtures: 'If these users don''t work, reload application fixtures by running this command from the terminal:'
     add_user: 'If you want to create new users, run this other command:'
     more_information: For more information, check out the <a href="http://symfony.com/doc">Symfony doc</a>.
-
-map:
-    title_index: Map index
-    title_create: Map create
-    title_edit: Map edit
-    sub_title_create: Create a new mapa
-    table:
-        id: Id
-        name: Map name
-        height: Map Height
-        width: Map Width
-        action: Action
-        action_construct: Construct map
-    form:
-        name:       Name
-        slug:       Slug
-        height:     Map Height
-        width:      Map Width
-        enabled:    Is enabled
-        submit_create: Create map
-        new_map: + New map
-
-archetype:
-    title_index: Archetype index
-    title_create: Archetype create
-    title_edit: Archetype edit
-    sub_title_create: Create a new archetype
-    table:
-        id: Id
-        name: Archetype name
-
-    form:
-        new_archetype: + New archetype

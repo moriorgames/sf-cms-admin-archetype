@@ -4,8 +4,8 @@ app:
     type:     annotation
     prefix:   /
 
-user:
-    resource: @AppBundle/Controller/
+cms:
+    resource: @CmsBundle/Controller/
     type:     annotation
     prefix:   /
 
