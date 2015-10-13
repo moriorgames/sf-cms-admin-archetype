@@ -2,7 +2,6 @@
 
 namespace CmsBundle\Controller;
 
-use CmsBundle\Entity\Page;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 // Annotations
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -21,8 +20,6 @@ class PageController extends Controller
      */
     public function indexAction($slug)
     {
-
-
         return ['name' => $slug];
     }
 }

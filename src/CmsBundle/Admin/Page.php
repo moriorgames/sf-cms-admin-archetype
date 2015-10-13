@@ -39,12 +39,11 @@ class Page extends Admin
             ->add('createdAt', 'sonata_type_datetime_picker',
                 [
                     'dp_side_by_side' => false,
-                    'required'        => false,
-                    'dp_icons'        =>
-                        [
+                    'required' => false,
+                    'dp_icons' => [
                             'time' => 'icon-clock',
                             'date' => 'icon-calendar',
-                            'up'   => 'icon-chevron-up',
+                            'up' => 'icon-chevron-up',
                             'down' => 'icon-chevron-down',
                         ],
                     'label' => 'admin.created_at',
@@ -53,12 +52,11 @@ class Page extends Admin
             ->add('updatedAt', 'sonata_type_datetime_picker',
                 [
                     'dp_side_by_side' => false,
-                    'required'        => false,
-                    'dp_icons'        =>
-                        [
+                    'required' => false,
+                    'dp_icons' => [
                             'time' => 'icon-clock',
                             'date' => 'icon-calendar',
-                            'up'   => 'icon-chevron-up',
+                            'up' => 'icon-chevron-up',
                             'down' => 'icon-chevron-down',
                         ],
                     'label' => 'admin.updated_at',

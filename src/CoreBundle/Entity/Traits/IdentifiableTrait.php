@@ -39,5 +39,4 @@ trait IdentifiableTrait
 
         return $this;
     }
-
 }

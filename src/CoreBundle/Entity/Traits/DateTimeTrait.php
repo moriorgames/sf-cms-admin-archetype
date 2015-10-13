@@ -25,7 +25,7 @@ trait DateTimeTrait
     private $updatedAt;
 
     /**
-     * Return created_at value
+     * Return created_at value.
      *
      * @return DateTime
      */
@@ -35,7 +35,7 @@ trait DateTimeTrait
     }
 
     /**
-     * Set locally created at value
+     * Set locally created at value.
      *
      * @param DateTime $createdAt Created at value
      *
@@ -49,7 +49,7 @@ trait DateTimeTrait
     }
 
     /**
-     * Return updated_at value
+     * Return updated_at value.
      *
      * @return DateTime
      */
@@ -59,7 +59,7 @@ trait DateTimeTrait
     }
 
     /**
-     * Set locally updated at value
+     * Set locally updated at value.
      *
      * @param DateTime $updatedAt Updated at value
      *

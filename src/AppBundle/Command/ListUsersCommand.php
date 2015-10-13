@@ -2,12 +2,14 @@
 
 namespace AppBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use UserBundle\Entity\User;
 use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Input\InputInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 /**
  * A command console that lists all the existing users. To use this command, open
@@ -52,8 +54,7 @@ HELP
             // commands can optionally define arguments and/or options (mandatory and optional)
             // see http://symfony.com/doc/current/components/console/console_arguments.html
             ->addOption('max-results', null, InputOption::VALUE_OPTIONAL, 'Limits the number of users listed', 50)
-            ->addOption('send-to', null, InputOption::VALUE_OPTIONAL, 'If set, the result is sent to the given email address')
-        ;
+            ->addOption('send-to', null, InputOption::VALUE_OPTIONAL, 'If set, the result is sent to the given email address');
     }
 
     /**
@@ -73,11 +74,15 @@ HELP
     {
         $maxResults = $input->getOption('max-results');
         // Use ->findBy() instead of ->findAll() to allow result sorting and limiting
-        $users = $this->em->getRepository('AppBundle:User')->findBy(array(), array('id' => 'DESC'), $maxResults);
+        $users = $this->em->getRepository('UserBundle:User')->findBy(
+            [],
+            ['id' => 'DESC'],
+            $maxResults
+        );
 
         // Doctrine query returns an array of objects and we need an array of plain arrays
-        $usersAsPlainArrays = array_map(function ($user) {
-            return array($user->getId(), $user->getUsername(), $user->getEmail(), implode(', ', $user->getRoles()));
+        $usersAsPlainArrays = array_map(function (User $user) {
+            return [$user->getId(), $user->getUsername(), $user->getEmail(), implode(', ', $user->getRoles())];
         }, $users);
 
         // In your console commands you should always use the regular output type,
@@ -91,9 +96,8 @@ HELP
 
         $table = new Table($bufferedOutput);
         $table
-            ->setHeaders(array('ID', 'Username', 'Email', 'Roles'))
-            ->setRows($usersAsPlainArrays)
-        ;
+            ->setHeaders(['ID', 'Username', 'Email', 'Roles'])
+            ->setRows($usersAsPlainArrays);
         $table->render();
 
         // instead of displaying the table of users, store it in a variable
@@ -121,8 +125,7 @@ HELP
             ->setSubject(sprintf('app:list-users report (%s)', date('Y-m-d H:i:s')))
             ->setFrom($this->getContainer()->getParameter('app.notifications.email_sender'))
             ->setTo($recipient)
-            ->setBody($contents, 'text/plain')
-        ;
+            ->setBody($contents, 'text/plain');
 
         $mailer->send($message);
     }

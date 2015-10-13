@@ -2,14 +2,14 @@
 
 namespace AppBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use UserBundle\Entity\User;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\Question;
-use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\User;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 /**
  * A command console that creates users and stores them in the database.
@@ -47,8 +47,7 @@ class AddUserCommand extends ContainerAwareCommand
             ->addArgument('username', InputArgument::OPTIONAL, 'The username of the new user')
             ->addArgument('password', InputArgument::OPTIONAL, 'The plain password of the new user')
             ->addArgument('email', InputArgument::OPTIONAL, 'The email of the new user')
-            ->addOption('is-admin', null, InputOption::VALUE_NONE, 'If set, the user is created as an administrator')
-        ;
+            ->addOption('is-admin', null, InputOption::VALUE_NONE, 'If set, the user is created as an administrator');
     }
 
     /**
@@ -86,20 +85,20 @@ class AddUserCommand extends ContainerAwareCommand
         $output->writeln('-----------------------------------');
 
         // ...but you can also pass an array of strings to the writeln() method
-        $output->writeln(array(
+        $output->writeln([
             '',
             'If you prefer to not use this interactive wizard, provide the',
             'arguments required by this command as follows:',
             '',
             ' $ php app/console app:add-user username password email@example.com',
             '',
-        ));
+        ]);
 
-        $output->writeln(array(
+        $output->writeln([
             '',
             'Now we\'ll ask you for the value of all the missing command arguments.',
             '',
-        ));
+        ]);
 
         // See http://symfony.com/doc/current/components/console/helpers/questionhelper.html
         $console = $this->getHelper('question');
@@ -127,7 +126,7 @@ class AddUserCommand extends ContainerAwareCommand
         $password = $input->getArgument('password');
         if (null === $password) {
             $question = new Question(' > <info>Password</info> (your type will be hidden): ');
-            $question->setValidator(array($this, 'passwordValidator'));
+            $question->setValidator([$this, 'passwordValidator']);
             $question->setHidden(true);
             $question->setMaxAttempts(self::MAX_ATTEMPTS);
 
@@ -141,7 +140,7 @@ class AddUserCommand extends ContainerAwareCommand
         $email = $input->getArgument('email');
         if (null === $email) {
             $question = new Question(' > <info>Email</info>: ');
-            $question->setValidator(array($this, 'emailValidator'));
+            $question->setValidator([$this, 'emailValidator']);
             $question->setMaxAttempts(self::MAX_ATTEMPTS);
 
             $email = $console->ask($input, $output, $question);
@@ -165,7 +164,7 @@ class AddUserCommand extends ContainerAwareCommand
         $isAdmin = $input->getOption('is-admin');
 
         // first check if a user with the same username already exists
-        $existingUser = $this->em->getRepository('AppBundle:User')->findOneBy(array('username' => $username));
+        $existingUser = $this->em->getRepository('UserBundle:User')->findOneBy(['username' => $username]);
 
         if (null !== $existingUser) {
             throw new \RuntimeException(sprintf('There is already a user registered with the "%s" username.', $username));
@@ -175,7 +174,7 @@ class AddUserCommand extends ContainerAwareCommand
         $user = new User();
         $user->setUsername($username);
         $user->setEmail($email);
-        $user->setRoles(array($isAdmin ? 'ROLE_ADMIN' : 'ROLE_USER'));
+        $user->setRoles([$isAdmin ? 'ROLE_ADMIN' : 'ROLE_USER']);
 
         // See http://symfony.com/doc/current/book/security.html#security-encoding-password
         $encoder = $this->getContainer()->get('security.password_encoder');
@@ -183,17 +182,15 @@ class AddUserCommand extends ContainerAwareCommand
         $user->setPassword($encodedPassword);
 
         $this->em->persist($user);
-        $this->em->flush($user);
+        $this->em->flush();
 
         $output->writeln('');
         $output->writeln(sprintf('[OK] %s was successfully created: %s (%s)', $isAdmin ? 'Administrator user' : 'User', $user->getUsername(), $user->getEmail()));
 
-        if ($output->isVerbose()) {
-            $finishTime = microtime(true);
-            $elapsedTime = $finishTime - $startTime;
+        $finishTime = microtime(true);
+        $elapsedTime = $finishTime - $startTime;
 
-            $output->writeln(sprintf('[INFO] New user database id: %d / Elapsed time: %.2f ms', $user->getId(), $elapsedTime * 1000));
-        }
+        $output->writeln(sprintf('[INFO] New user database id: %d / Elapsed time: %.2f ms', $user->getId(), $elapsedTime * 1000));
     }
 
     /**

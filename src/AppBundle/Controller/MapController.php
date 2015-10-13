@@ -78,7 +78,7 @@ class MapController extends Controller
 
         return [
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ];
     }
 
@@ -96,7 +96,7 @@ class MapController extends Controller
 
         return [
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ];
     }
 
@@ -125,7 +125,7 @@ class MapController extends Controller
 
         return [
             'entity' => $entity,
-            'form'   => $editForm->createView(),
+            'form' => $editForm->createView(),
         ];
     }
 
@@ -151,8 +151,8 @@ class MapController extends Controller
         }
 
         return [
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
         ];
     }
 
@@ -178,7 +178,7 @@ class MapController extends Controller
     }
 
     /**
-     * Construct the map tile by tile
+     * Construct the map tile by tile.
      *
      * @Route("/construct/{id}", name="map_construct")
      * @Template()
@@ -195,9 +195,9 @@ class MapController extends Controller
         $map = $manager->getById($id);
 
         return [
-            'map'      => $map,
+            'map' => $map,
             'mapTiles' => $manager->createView($map),
-            'tiles'    => $manager->getTiles(),
+            'tiles' => $manager->getTiles(),
         ];
     }
 
@@ -280,7 +280,7 @@ class MapController extends Controller
     }
 
     /**
-     * Adds buttons to the forms in CRUD admin
+     * Adds buttons to the forms in CRUD admin.
      *
      * @param Form $form
      *

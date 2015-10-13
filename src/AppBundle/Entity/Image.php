@@ -52,7 +52,7 @@ class Image
     {
         return null === $this->path
             ? null
-            : $this->getUploadRootDir() . '/' . $this->path;
+            : $this->getUploadRootDir().'/'.$this->path;
     }
 
     /**
@@ -62,7 +62,7 @@ class Image
     {
         return null === $this->path
             ? null
-            : $this->getUploadDir() . '/' . $this->path;
+            : $this->getUploadDir().'/'.$this->path;
     }
 
     /**
@@ -86,7 +86,7 @@ class Image
     {
         $reflection = new ReflectionClass(get_class($this));
 
-        return dirname($reflection->getFileName()) . '/../../../../web/' . $this->getUploadDir();
+        return dirname($reflection->getFileName()).'/../../../../web/'.$this->getUploadDir();
     }
 
     /**
